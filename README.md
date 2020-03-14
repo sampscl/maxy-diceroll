@@ -16,7 +16,7 @@ Maxy-diceroll uses build scripts and out of tree builds (into the ./build dir):
 ```bash
 scripts/clean.sh &&
 scripts/build.sh &&
-scripts/deploy.sh && "echo Successful!"
+scripts/deploy.sh && echo Successful
 ```
 This will work on ubuntu and other unbuntu-like distros (e.g. kubuntu, mint,
 etc.).
