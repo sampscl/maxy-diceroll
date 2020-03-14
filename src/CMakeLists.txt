@@ -26,6 +26,7 @@ find_package(Threads REQUIRED)
 # list of source files
 file(GLOB SRCS *.cpp
   *.c
+  utils/*.cpp
 )
 
 # debug or not
