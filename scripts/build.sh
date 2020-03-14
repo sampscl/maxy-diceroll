@@ -8,4 +8,4 @@ then
   TARGET=maxy_diceroll
 fi
 
-(TARGET=${TARGET} BOXER=1 FRYE=1 ${this_script_dir}/do_build.sh)
+(TARGET=${TARGET} ${this_script_dir}/do_build.sh)
