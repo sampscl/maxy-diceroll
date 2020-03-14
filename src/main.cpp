@@ -129,7 +129,8 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
 
   const Options* o = reinterpret_cast<const Options*>(c->mgr->user_data);
   struct http_message *hm = (struct http_message *) p;
-  struct mg_serve_http_opts opts = { .document_root = o->ui_dir.c_str() };
+  struct mg_serve_http_opts opts = {0};
+  opts.document_root = o->ui_dir.c_str();
 
   iodpr(true, hm->message.p, hm->message.len);
   dpr("method        : %.*s\n", int(hm->method.len), hm->method.p);
