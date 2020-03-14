@@ -136,7 +136,6 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
   dpr("uri           : %.*s\n", int(hm->uri.len), hm->uri.p);
   dpr("proto         : %.*s\n", int(hm->proto.len), hm->proto.p);
   dpr("query_string  : %.*s\n", int(hm->query_string.len), hm->query_string.p);
-  dpr("user_data     : %p\n", c->user_data);
 
   mg_serve_http(c, hm, opts);
 } // end ev_handler
