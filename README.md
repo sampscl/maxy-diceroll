@@ -24,6 +24,7 @@ etc.).
 More stuff is supported:
 ```bash
 CMAKE_BUILD_TYPE=Debug scripts/build.sh # build Debug build (default is Release)
+TARGET=run_test CMAKE_BUILD_TYPE=Debug scripts/build.sh # build tests
 TARGET=all CMAKE_BUILD_TYPE=Debug scripts/build.sh # build debug build and tests too
 ```
 
