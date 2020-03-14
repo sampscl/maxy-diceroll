@@ -31,4 +31,5 @@ Run the generated programs:
 ```bash
 build/tests/run_test # run the tests
 build/src/maxy_diceroll # run the program
+build/src/maxy_diceroll --port=8080 --ui-dir=`pwd`/ui # with some opts
 ```
