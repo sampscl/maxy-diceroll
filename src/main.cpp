@@ -153,15 +153,17 @@ int main(int argc, char* argv[]) {
     fprintf(stderr, "Error parsing options\n");
     return EXIT_FAILURE;
   }
-  dpr("ui_dir = %s\n", o.ui_dir.c_str());
+  dpr("ui_dir   = %s\n", o.ui_dir.c_str());
   dpr("web_port = %s\n", o.web_port.c_str());
   dpr("web_addr = %s\n", o.web_addr.c_str());
 
   struct mg_mgr mgr;
   struct mg_connection *c;
 
-  mg_mgr_init(&mgr, NULL);
-  c = mg_bind(&mgr, "8080", ev_handler);
+  std::string addr = util_sprintf("%s:%s", o.web_addr.c_str(), o.web_port.c_str());
+
+  mg_mgr_init(&mgr, &o);
+  c = mg_bind(&mgr, addr.c_str(), ev_handler);
   mg_set_protocol_http_websocket(c);
 
   while(run) {
