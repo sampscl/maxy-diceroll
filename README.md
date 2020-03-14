@@ -1,4 +1,4 @@
-# 🦖 Maxy-diceroll 🦖
+# 🦖🎲 Maxy-diceroll 🎲🦖
 Dice rolling TO THE MAX
 
 ## Pre-requisites
