@@ -40,6 +40,7 @@ endif()
 # defines for mongoose
 add_definitions(-DMG_ENABLE_HTTP_STREAMING_MULTIPART)
 add_definitions(-DMG_ENABLE_HTTP_WEBSOCKET)
+add_definitions(-DMG_ENABLE_FILESYSTEM)
 
 # glue it all together into our executable
 add_executable(${PROJECT_NAME} ${SRCS})

@@ -127,8 +127,10 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
     return;
   }
 
+  const Options* o = reinterpret_cast<const Options*>(c->mgr->user_data);
   struct http_message *hm = (struct http_message *) p;
-  c->user_data = (void*)0xDEADBEEF;
+  struct mg_serve_http_opts opts = { .document_root = o->ui_dir.c_str() };
+
   iodpr(true, hm->message.p, hm->message.len);
   dpr("method        : %.*s\n", int(hm->method.len), hm->method.p);
   dpr("uri           : %.*s\n", int(hm->uri.len), hm->uri.p);
@@ -136,10 +138,7 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
   dpr("query_string  : %.*s\n", int(hm->query_string.len), hm->query_string.p);
   dpr("user_data     : %p\n", c->user_data);
 
-  // We have received an HTTP request. Parsed request is contained in `hm`.
-  // Send HTTP reply to the client which shows full original request.
-  mg_send_head(c, 200, hm->message.len, "Content-Type: text/plain");
-  mg_printf(c, "%.*s", (int)hm->message.len, hm->message.p);
+  mg_serve_http(c, hm, opts);
 } // end ev_handler
 ////////////////////////////////////////////////////////////////////////////////
 // main
