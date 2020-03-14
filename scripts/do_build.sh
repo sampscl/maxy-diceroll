@@ -27,4 +27,5 @@ cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} ${toolchain_arg} ../ || exit $?
 
 echo "Building project"
 make ${TARGET} || exit $?
+
 echo "Built successfully in ${build_dir}"
