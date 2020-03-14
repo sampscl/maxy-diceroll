@@ -1,5 +1,5 @@
-# Maxy-diceroll
-Maximum Dice roll, a dice roller.
+# 🦖 Maxy-diceroll 🦖
+Dice rolling TO THE MAX
 
 ## Pre-requisites
 - A compiler and the usual toolchain
